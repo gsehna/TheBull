@@ -26,14 +26,38 @@ public class TopViewController : MonoBehaviour
     private void Awake()
     {
         camera = Camera.main;
+
+        adrenalineGoal = adrenaline;
     }
 
     private void Update()
     {
+        // Movement
         Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = (mousePosition - (Vector2)transform.position).normalized;
         direction = Vector3.Slerp(direction, lookDirection, rotationSpeed * Time.deltaTime);
         transform.Translate(direction * Mathf.Lerp(minRunningSpeed, maxRunningSpeed, adrenaline / 100f) * Time.deltaTime);
+
+        // Adrenaline
+        if (adrenalineGoal < adrenaline)
+        {
+            adrenaline -= adrenalineLoss * 5 * Time.deltaTime;
+        }
+        else
+        {
+            adrenalineGoal -= adrenalineLoss * Time.deltaTime;
+            adrenaline = adrenalineGoal;
+        }
+    }
+
+    public void AddAdrenaline(float value)
+    {
+        adrenalineGoal += value;
+        adrenalineGoal = Mathf.Clamp(adrenalineGoal, 0, 100);
+        if (adrenalineGoal > adrenaline)
+        {
+            adrenaline = adrenalineGoal;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,6 +76,7 @@ public class TopViewController : MonoBehaviour
         {
             case "Destroyable":
                 DestroyableObject destroyable = collision.GetComponent<DestroyableObject>();
+                AddAdrenaline(destroyable.adrenalineGain);
                 destroyable.Destroy();
                 break;
         }
