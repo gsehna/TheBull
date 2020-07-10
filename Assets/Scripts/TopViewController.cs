@@ -22,10 +22,12 @@ public class TopViewController : MonoBehaviour
     public float multiplier;
 
     private new Camera camera;
+    private new SpriteRenderer renderer;
 
     private void Awake()
     {
         camera = Camera.main;
+        renderer = GetComponent<SpriteRenderer>();
 
         adrenalineGoal = adrenaline;
     }
@@ -36,6 +38,7 @@ public class TopViewController : MonoBehaviour
         Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = (mousePosition - (Vector2)transform.position).normalized;
         direction = Vector3.Slerp(direction, lookDirection, rotationSpeed * Time.deltaTime);
+        renderer.flipX = direction.x < 0;
         transform.Translate(direction * Mathf.Lerp(minRunningSpeed, maxRunningSpeed, adrenaline / 100f) * Time.deltaTime);
 
         // Adrenaline
@@ -66,6 +69,7 @@ public class TopViewController : MonoBehaviour
         {
             case "Building":
                 direction = Vector2.Reflect(direction, collision.contacts[0].normal);
+                AddAdrenaline(-15);
                 break;
         }
     }
