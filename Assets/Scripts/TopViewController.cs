@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class TopViewController : MonoBehaviour
 {
-    [Header("Properties")]
+    [Header("Movement")]
     public Vector2 direction;
-    public float runningSpeed;
+    public float minRunningSpeed;
+    public float maxRunningSpeed;
     public float rotationSpeed;
+
+    [Header("Adrenaline")]
+    [Range(0, 100)]
+    public float adrenaline;
+    [HideInInspector]
+    public float adrenalineGoal;
+    public float adrenalineLoss;
+
+    [Header("Score")]
+    public float score;
+    public float multiplier;
 
     private new Camera camera;
 
@@ -21,6 +33,27 @@ public class TopViewController : MonoBehaviour
         Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = (mousePosition - (Vector2)transform.position).normalized;
         direction = Vector3.Slerp(direction, lookDirection, rotationSpeed * Time.deltaTime);
-        transform.Translate(direction * runningSpeed * Time.deltaTime);
+        transform.Translate(direction * Mathf.Lerp(minRunningSpeed, maxRunningSpeed, adrenaline / 100f) * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch (collision.transform.tag)
+        {
+            case "Building":
+                direction = Vector2.Reflect(direction, collision.contacts[0].normal);
+                break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.tag)
+        {
+            case "Destroyable":
+                DestroyableObject destroyable = collision.GetComponent<DestroyableObject>();
+                destroyable.Destroy();
+                break;
+        }
     }
 }
