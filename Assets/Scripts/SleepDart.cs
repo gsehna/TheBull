@@ -10,4 +10,12 @@ public class SleepDart : MonoBehaviour
     {
         transform.Translate(transform.up * velocity * Time.deltaTime, Space.World);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Building")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

@@ -26,6 +26,15 @@ public class BullHunter : DestroyableObject
         float distance = Vector2.Distance(transform.position, target.position);
         Vector2 direction = target.position - gunPosition.position;
 
+        if (target.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+        }
+
         if (!locked && distance <= lockRange &&
             !Physics2D.Raycast(gunPosition.position, direction.normalized, direction.magnitude, LayerMask.GetMask("Building")))
         {
@@ -34,11 +43,7 @@ public class BullHunter : DestroyableObject
 
         if (locked)
         {
-            line.SetPositions(new Vector3[]
-            {
-                gunPosition.position,
-                target.position
-            });
+            line.startColor = line.endColor = Color.yellow;
 
             if (Physics2D.Raycast(gunPosition.position, direction.normalized, direction.magnitude, LayerMask.GetMask("Building")))
             {
@@ -54,6 +59,11 @@ public class BullHunter : DestroyableObject
             if (distance >= minRange)
             {
                 timer += Time.deltaTime;
+                if (timer >= shotDelay - 0.5f)
+                {
+                    line.startColor = line.endColor = Color.red;
+                }
+
                 if (timer >= shotDelay)
                 {
                     GameObject newDart = Instantiate(dart, gunPosition.position, Quaternion.identity);
@@ -71,6 +81,18 @@ public class BullHunter : DestroyableObject
                     }
                 }
             }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (locked)
+        {
+            line.SetPositions(new Vector3[]
+            {
+                gunPosition.position,
+                target.position
+            });
         }
     }
 

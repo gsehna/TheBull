@@ -16,6 +16,7 @@ public class TopViewController : MonoBehaviour
     [HideInInspector]
     public float adrenalineGoal;
     public float adrenalineLoss;
+    public float dartLoss;
 
     [Header("Score")]
     public float score;
@@ -26,6 +27,9 @@ public class TopViewController : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
+
         camera = Camera.main;
         renderer = GetComponent<SpriteRenderer>();
 
@@ -81,6 +85,10 @@ public class TopViewController : MonoBehaviour
                 DestroyableObject destroyable = collision.GetComponent<DestroyableObject>();
                 AddAdrenaline(destroyable.adrenalineGain);
                 destroyable.Destroy();
+                break;
+            case "Dart":
+                Destroy(collision.gameObject);
+                AddAdrenaline(dartLoss);
                 break;
         }
     }
