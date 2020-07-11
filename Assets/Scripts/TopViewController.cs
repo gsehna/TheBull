@@ -69,7 +69,6 @@ public class TopViewController : MonoBehaviour
         {
             case "Building":
                 direction = Vector2.Reflect(direction, collision.contacts[0].normal);
-                AddAdrenaline(-15);
                 break;
         }
     }

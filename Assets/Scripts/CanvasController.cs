@@ -12,8 +12,8 @@ public class CanvasController : MonoBehaviour
     private void Awake()
     {
         bull = FindObjectOfType<TopViewController>();
-        adrenalineFill = transform.Find("Adrenaline Background/Adrenaline").GetComponent<Image>();
-        adrenalineGoalFill = transform.Find("Adrenaline Background/Adrenaline Goal").GetComponent<Image>();
+        adrenalineFill = transform.Find("Adrenaline Bar/Adrenaline").GetComponent<Image>();
+        adrenalineGoalFill = transform.Find("Adrenaline Bar/Adrenaline Goal").GetComponent<Image>();
     }
 
     private void Update()
