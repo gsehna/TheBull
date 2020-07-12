@@ -25,6 +25,7 @@ public class TopViewController : MonoBehaviour
     [Header("Refs")]
     public MainManager mg;
     public DestroyableObject[] gates;
+    public Animator animator;
 
     private new Camera camera;
     private new SpriteRenderer renderer;
@@ -36,6 +37,7 @@ public class TopViewController : MonoBehaviour
 
         camera = Camera.main;
         renderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
         adrenalineGoal = adrenaline;
     }
@@ -47,6 +49,7 @@ public class TopViewController : MonoBehaviour
             if(Input.GetMouseButtonDown(0))
             {
                 mg.TakeBull();
+                animator.SetTrigger("StartRunning");
             }
             return;
         }
