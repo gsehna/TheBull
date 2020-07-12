@@ -8,7 +8,7 @@ public class DestroyableObject : MonoBehaviour
     public float adrenalineGain;
     public float scoreGain;
 
-    public void Destroy()
+    public virtual void Destroy()
     {
         if (destructionParticles != null)
         {

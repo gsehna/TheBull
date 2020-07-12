@@ -96,6 +96,16 @@ public class BullHunter : DestroyableObject
         }
     }
 
+    public override void Destroy()
+    {
+        AudioManager.PlayVoiceClip(Random.Range(0, 14));
+        if (destructionParticles != null)
+        {
+            Instantiate(destructionParticles, transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
