@@ -10,7 +10,10 @@ public class DestroyableObject : MonoBehaviour
 
     public void Destroy()
     {
-        Instantiate(destructionParticles, transform.position, Quaternion.identity);
+        if (destructionParticles != null)
+        {
+            Instantiate(destructionParticles,transform.position,Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }
