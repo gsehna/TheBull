@@ -23,12 +23,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void LateUpdate()
     {
+        transform.position = bull.transform.position;
+
         timer += Time.deltaTime;
 
         if (timer >= spawnerTime)
         {
             timer = 0;
-            GameObject newHunter = Instantiate(hunter, Vector2.zero, Quaternion.identity);
+            GameObject newHunter = Instantiate(hunter, Vector2.zero, Quaternion.identity, transform);
             newHunter.GetComponent<BullHunter>().target = bull.transform;
 
             bool canSpawn = false;
