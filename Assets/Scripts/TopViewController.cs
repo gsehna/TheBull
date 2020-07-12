@@ -22,6 +22,10 @@ public class TopViewController : MonoBehaviour
     public float score;
     public float multiplier;
 
+    [Header("Refs")]
+    public MainManager mg;
+    public DestroyableObject[] gates;
+
     private new Camera camera;
     private new SpriteRenderer renderer;
 
@@ -38,12 +42,24 @@ public class TopViewController : MonoBehaviour
 
     private void Update()
     {
+        if (!mg.tookBull)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                mg.TakeBull();
+            }
+            return;
+        }
+
         // Movement
         Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = (mousePosition - (Vector2)transform.position).normalized;
         direction = Vector3.Slerp(direction, lookDirection, rotationSpeed * Time.deltaTime);
         renderer.flipX = direction.x < 0;
         transform.Translate(direction * Mathf.Lerp(minRunningSpeed, maxRunningSpeed, adrenaline / 100f) * Time.deltaTime);
+
+        if (!mg.startedGame) // Don't do anything if game hasn't started yet
+            return;
 
         // Adrenaline
         if (adrenalineGoal < adrenaline)
@@ -85,6 +101,13 @@ public class TopViewController : MonoBehaviour
                 DestroyableObject destroyable = collision.GetComponent<DestroyableObject>();
                 AddAdrenaline(destroyable.adrenalineGain);
                 destroyable.Destroy();
+                break;
+            case "Start Gate":
+                foreach (DestroyableObject g in gates)
+                {
+                    g.Destroy();
+                }
+                mg.StartGame();
                 break;
             case "Dart":
                 Destroy(collision.gameObject);

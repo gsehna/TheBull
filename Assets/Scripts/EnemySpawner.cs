@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Refs")]
     public TopViewController bull;
+    public MainManager mg;
     public Transform colliders;
     public GameObject hunter;
 
@@ -24,6 +25,9 @@ public class EnemySpawner : MonoBehaviour
     private void LateUpdate()
     {
         transform.position = bull.transform.position;
+
+        if (!mg.startedGame) // Don't do anything if game hasn't started yet
+            return;
 
         timer += Time.deltaTime;
 
