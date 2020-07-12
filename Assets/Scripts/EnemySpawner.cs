@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     public TopViewController bull;
     public MainManager mg;
     public Transform colliders;
+    public Transform enemyHolder;
     public GameObject hunter;
 
     private float timer;
@@ -34,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
         if (timer >= spawnerTime)
         {
             timer = 0;
-            GameObject newHunter = Instantiate(hunter, Vector2.zero, Quaternion.identity, transform);
+            GameObject newHunter = Instantiate(hunter, Vector2.zero, Quaternion.identity, enemyHolder);
             newHunter.GetComponent<BullHunter>().target = bull.transform;
 
             bool canSpawn = false;
