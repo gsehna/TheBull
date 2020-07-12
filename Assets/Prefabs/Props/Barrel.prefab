@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212a99f17acd8e34a861c6ca5c03445d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionParticles: {fileID: 1155679647345237099, guid: 95eefdfcc3ddecd4c8e75ce2bcdcd547,
+  destructionParticles: {fileID: 2148149164298139835, guid: a30e705e30315a94e90bb628d3fdb6a8,
     type: 3}
   adrenalineGain: 0
   scoreGain: 0
