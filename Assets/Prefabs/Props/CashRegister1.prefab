@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5386798824235518239}
   - component: {fileID: 7978364099573094659}
   - component: {fileID: 6866411287917824616}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CashRegister1
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

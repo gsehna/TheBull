@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2348473871173387972}
   - component: {fileID: 4307258360703022669}
   - component: {fileID: 1882779365400312317}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Basket1
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

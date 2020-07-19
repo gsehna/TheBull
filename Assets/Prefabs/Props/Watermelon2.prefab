@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6263943566297837714}
   - component: {fileID: 6689962876081600369}
   - component: {fileID: 5497752469572557701}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Watermelon2
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

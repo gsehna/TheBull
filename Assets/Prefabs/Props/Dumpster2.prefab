@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3200847003207364220}
   - component: {fileID: 7189080187064586000}
   - component: {fileID: 1586840103716809141}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dumpster2
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8879437167397550768}
   - component: {fileID: 5293517835287939014}
   - component: {fileID: 7156718642947692368}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bowl1
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

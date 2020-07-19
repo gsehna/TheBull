@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6581610232402033677}
   - component: {fileID: 5887302209725472142}
   - component: {fileID: 8069029484597801293}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrashCan2
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

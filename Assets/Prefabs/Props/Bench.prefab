@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8097383571634976554}
   - component: {fileID: 533043789336271569}
   - component: {fileID: 2068528310423231634}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bench
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4644017823512699038}
   - component: {fileID: 2449488832438703222}
   - component: {fileID: 3171388151725905910}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Crate
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

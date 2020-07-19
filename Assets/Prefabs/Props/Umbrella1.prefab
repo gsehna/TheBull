@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7200719974756291190}
   - component: {fileID: 3519098687486535136}
   - component: {fileID: 7968496838360960289}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Umbrella1
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

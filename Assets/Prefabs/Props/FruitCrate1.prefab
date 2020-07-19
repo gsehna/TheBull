@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 724240215741449194}
   - component: {fileID: 2778836594163258330}
   - component: {fileID: 3584651017619731925}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FruitCrate1
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

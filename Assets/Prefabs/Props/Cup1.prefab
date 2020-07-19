@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7794980214092129309}
   - component: {fileID: 7739512667260822662}
   - component: {fileID: 7220898653081096582}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cup1
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

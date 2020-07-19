@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6964498049280220050}
   - component: {fileID: 5678830271233836343}
   - component: {fileID: 5935460319582504551}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrafficSign6
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

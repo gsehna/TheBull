@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5977123945817115106}
   - component: {fileID: 3229380053822002125}
   - component: {fileID: 849173112334609120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RecycleBin1
   m_TagString: Destroyable
   m_Icon: {fileID: 0}
